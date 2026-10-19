@@ -6,7 +6,7 @@
 #    By: tsergien <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/21 11:42:01 by tsergien          #+#    #+#              #
-#    Updated: 2018/05/07 12:23:51 by tsergien         ###   ########.fr        #
+#    Updated: 2018/09/13 11:24:58 by tsergien         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,97 +14,114 @@ NAME = libft.a
 
 HEADER = includes/
 
-SRC = 	ft_atoi.c\
-		ft_bzero.c\
-		ft_isalnum.c\
-		ft_isalpha.c\
-		ft_isascii.c\
-		ft_isdigit.c\
-		ft_isprint.c\
-		ft_itoa.c\
-		ft_lstadd.c\
-		ft_lstdel.c\
-		ft_lstdelone.c\
-		ft_lstiter.c\
-		ft_lstmap.c\
-		ft_lstnew.c\
-		ft_lstpush_back.c\
-		ft_lstsize.c\
-		ft_memalloc.c\
-		ft_memccpy.c\
-		ft_memchr.c\
-		ft_memcmp.c\
-		ft_memcpy.c\
-		ft_memdel.c\
-		ft_memmove.c\
-		ft_memset.c\
-		ft_newmatrix.c\
-		ft_putchar.c\
-		ft_putchar_fd.c\
-		ft_putendl.c\
-		ft_putendl_fd.c\
-		ft_putnbr.c\
-		ft_putnbr_fd.c\
-		ft_putstr.c\
-		ft_putstr_fd.c\
-		ft_sqrt.c\
-		ft_strcat.c\
-		ft_strchr.c\
-		ft_strclr.c\
-		ft_strcmp.c\
-		ft_strcpy.c\
-		ft_strdel.c\
-		ft_strdup.c\
-		ft_strdup_free.c\
-		ft_strequ.c\
-		ft_striter.c\
-		ft_striteri.c\
-		ft_strjoin.c\
-		ft_strjoin_free.c\
-		ft_strjoin_free_one.c\
-		ft_strlcat.c\
-		ft_strlen.c\
-		ft_strmap.c\
-		ft_strmapi.c\
-		ft_strncat.c\
-		ft_strncmp.c\
-		ft_strncpy.c\
-		ft_strnequ.c\
-		ft_strnew.c\
-		ft_strnstr.c\
-		ft_strrchr.c\
-		ft_strsplit.c\
-		ft_strstr.c\
-		ft_strsub.c\
-		ft_strtrim.c\
-		ft_swap.c\
-		ft_tolower.c\
-		ft_toupper.c\
-		ft_num_len.c\
-		ft_pow.c\
-		ft_itoa_base.c\
-		get_next_line.c\
+SRC = 	src/ft_atoi.c\
+		src/ft_abs.c\
+		src/ft_bzero.c\
+		src/ft_isalnum.c\
+		src/ft_isalpha.c\
+		src/ft_isascii.c\
+		src/ft_isdigit.c\
+		src/ft_isprint.c\
+		src/ft_itoa.c\
+		src/ft_lstadd.c\
+		src/ft_lstdel.c\
+		src/ft_lstdelone.c\
+		src/ft_lstiter.c\
+		src/ft_lstmap.c\
+		src/ft_lstnew.c\
+		src/ft_lstpush_back.c\
+		src/ft_lstsize.c\
+		src/ft_memalloc.c\
+		src/ft_memccpy.c\
+		src/ft_memchr.c\
+		src/ft_memcmp.c\
+		src/ft_memcpy.c\
+		src/ft_memdel.c\
+		src/ft_memmove.c\
+		src/ft_memset.c\
+		src/ft_newmatrix.c\
+		src/ft_putchar.c\
+		src/ft_putchar_fd.c\
+		src/ft_putendl.c\
+		src/ft_putstr_endl.c\
+		src/ft_putendl_fd.c\
+		src/ft_putnbr.c\
+		src/ft_putnbr_fd.c\
+		src/ft_putstr.c\
+		src/ft_putstr_fd.c\
+		src/ft_sqrt.c\
+		src/ft_strcat.c\
+		src/ft_strchr.c\
+		src/ft_strclr.c\
+		src/ft_strcmp.c\
+		src/ft_strcpy.c\
+		src/ft_strdel.c\
+		src/ft_strdup.c\
+		src/ft_strdup_free.c\
+		src/ft_strequ.c\
+		src/ft_striter.c\
+		src/ft_striteri.c\
+		src/ft_strjoin.c\
+		src/ft_strjoin_free.c\
+		src/ft_strjoin_free_one.c\
+		src/ft_strlcat.c\
+		src/ft_strlen.c\
+		src/ft_strmap.c\
+		src/ft_strmapi.c\
+		src/ft_strncat.c\
+		src/ft_strncmp.c\
+		src/ft_strncpy.c\
+		src/ft_strnequ.c\
+		src/ft_strnew.c\
+		src/ft_strnstr.c\
+		src/ft_strrchr.c\
+		src/ft_strsplit.c\
+		src/ft_strstr.c\
+		src/ft_strsub.c\
+		src/ft_strtrim.c\
+		src/ft_swap.c\
+		src/ft_tolower.c\
+		src/ft_count_words.c\
+		src/ft_toupper.c\
+		src/ft_num_len.c\
+		src/ft_pow.c\
+		src/ft_itoa_base.c\
+		src/ft_atoi_base.c\
+		src/get_next_line.c\
 
+OBJ_DIR = obj
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
-FLAGC = -Wall -Wextra -Werror
+DEP = $(OBJ:.o=.d)
+
+WWW = -Wall -Wextra -Werror
 
 TILDA = *~
 
+COLOR = \x1b[38;5;225m
+RESET_COLOR = \033[0m
+
 all: $(NAME)
 
-$(NAME):
-		@gcc $(FLAGS) -c $(SRC) -I $(HEADER)
-		@ar rc $(NAME) $(OBJ)
-		@echo "lib compiled successfully."
+$(NAME): $(OBJ)
+		@ar rcs $(NAME) $(OBJ)
+		@echo "$(COLOR)***  created libft.a  ***$(RESET_COLOR)"
+
+$(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
+		@gcc $(WWW) -MMD -MP -I $(HEADER) -o $@ -c $<
+
+$(OBJ_DIR):
+		@mkdir -p $(OBJ_DIR)
 
 clean:
-		@rm -f $(OBJ) $(TILDA)
-		@echo "obj removed."
+		@rm -rf $(OBJ_DIR) $(TILDA)
 
 fclean: clean
 		@rm -f $(NAME)
-		@echo "lib removed."
 
 re: fclean all
+
+.PHONY: all clean fclean re
+
+-include $(DEP)
